@@ -157,7 +157,7 @@
 
   <nav>
     <a href="#" onclick="showMain()">Home</a>
-    <a href="#" onclick="showAllCodes()">All Shared Code</a>
+    <a href="all-shared-code.html">All Shared Code</a>
   </nav>
 
   <div class="container" id="main">
@@ -175,13 +175,14 @@
   </div>
 
   <script>
-    const sharedCodes = [];
+    const sharedCodes = JSON.parse(localStorage.getItem('sharedCodes')) || [];
 
     function shareCode() {
       const code = document.getElementById('codeInput').value;
       document.getElementById('sharedCode').textContent = code || '/* Nothing to display */';
       if (code.trim()) {
         sharedCodes.unshift(code);
+        localStorage.setItem('sharedCodes', JSON.stringify(sharedCodes));
         updateCodeList();
       }
     }
@@ -210,4 +211,3 @@
   </script>
 </body>
 </html>
-
