@@ -3,210 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code Sharing Platform</title>
+  <title>All Shared Code</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #4CAF50;
-      --primary-dark: #388e3c;
-      --bg-light: #f9fbfd;
       --bg-dark: #1e1e2f;
-      --text-light: #f8f8f2;
       --text-dark: #333;
-      --accent: #e0f7e9;
-    }
-
-    * {
-      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(120deg, var(--bg-light), #e0e7ef);
+      background: #f0f4f8;
       color: var(--text-dark);
-      line-height: 1.6;
     }
 
     header {
       background: var(--bg-dark);
       color: white;
-      padding: 60px 20px 40px;
+      padding: 40px 20px;
       text-align: center;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     header h1 {
       margin: 0;
-      font-size: 3em;
-    }
-
-    header p {
-      margin-top: 15px;
-      font-size: 1.25em;
-      color: #bbb;
+      font-size: 2.5em;
     }
 
     nav {
-      background-color: white;
+      background-color: #fff;
       padding: 10px 20px;
       text-align: center;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
       font-weight: 600;
-      color: var(--primary-dark);
+      color: var(--primary);
     }
 
     .container {
       max-width: 960px;
-      margin: 50px auto;
-      padding: 40px;
+      margin: 40px auto;
+      padding: 30px;
       background: white;
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
-      font-size: 2em;
-      margin-top: 0;
+      font-size: 1.8em;
+      margin-bottom: 20px;
       color: var(--bg-dark);
     }
 
-    textarea {
-      width: 100%;
-      height: 220px;
-      padding: 18px;
-      font-family: 'Fira Code', monospace;
-      font-size: 16px;
-      background-color: #fbfbfb;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-      transition: box-shadow 0.3s ease;
-    }
-
-    textarea:focus {
-      outline: none;
-      box-shadow: 0 0 12px rgba(76, 175, 80, 0.5);
-    }
-
-    button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 28px;
-      font-size: 16px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: white;
-      background-color: var(--primary);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 14px rgba(76, 175, 80, 0.4);
-    }
-
-    button:hover {
-      background-color: var(--primary-dark);
-      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
-      transform: translateY(-2px);
-    }
-
-    pre {
-      background: #2d2d2d;
-      color: var(--text-light);
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 30px;
-      font-family: 'Fira Code', monospace;
-      font-size: 15px;
-      overflow-x: auto;
-      white-space: pre-wrap;
-      line-height: 1.5;
-      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
-    }
-
-    .code-list {
-      margin-top: 30px;
-    }
-
     .code-snippet {
-      background: #f1f1f1;
+      background: #f7f7f7;
       border-left: 4px solid var(--primary);
       padding: 12px;
-      border-radius: 6px;
-      margin-bottom: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
       font-family: 'Fira Code', monospace;
-      font-size: 14px;
       white-space: pre-wrap;
+      font-size: 14px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>✨ Code Share</h1>
-    <p>Paste, share, and display your code instantly with style</p>
+    <h1>📚 All Shared Code</h1>
   </header>
 
   <nav>
-    <a href="#" onclick="showMain()">Home</a>
-    <a href="#" onclick="showAllCodes()">All Shared Code</a>
+    <a href="index.html">Home</a>
   </nav>
 
-  <div class="container" id="main">
-    <h2>Paste Your Code</h2>
-    <textarea id="codeInput" placeholder="Paste your code snippet here..."></textarea>
-    <button onclick="shareCode()">🚀 Share Code</button>
-
-    <h2>Shared Code</h2>
-    <pre id="sharedCode">/* Your code will appear here */</pre>
-  </div>
-
-  <div class="container" id="codeList" style="display:none">
-    <h2>All Shared Code</h2>
-    <div class="code-list" id="allCodes"></div>
+  <div class="container">
+    <h2>Shared Snippets</h2>
+    <div id="codeList"></div>
   </div>
 
   <script>
-    const sharedCodes = [];
+    const sharedCodes = JSON.parse(localStorage.getItem('sharedCodes')) || [];
+    const list = document.getElementById('codeList');
 
-    function shareCode() {
-      const code = document.getElementById('codeInput').value;
-      document.getElementById('sharedCode').textContent = code || '/* Nothing to display */';
-      if (code.trim()) {
-        sharedCodes.unshift(code);
-        updateCodeList();
-      }
-    }
-
-    function updateCodeList() {
-      const list = document.getElementById('allCodes');
-      list.innerHTML = '';
-      sharedCodes.forEach((code, index) => {
-        const div = document.createElement('div');
-        div.className = 'code-snippet';
-        div.textContent = code;
-        list.appendChild(div);
-      });
-    }
-
-    function showMain() {
-      document.getElementById('main').style.display = 'block';
-      document.getElementById('codeList').style.display = 'none';
-    }
-
-    function showAllCodes() {
-      document.getElementById('main').style.display = 'none';
-      document.getElementById('codeList').style.display = 'block';
-      updateCodeList();
-    }
+    sharedCodes.forEach(code => {
+      const div = document.createElement('div');
+      div.className = 'code-snippet';
+      div.textContent = code;
+      list.appendChild(div);
+    });
   </script>
 </body>
 </html>
