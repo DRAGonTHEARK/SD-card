@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code Sharing Platform</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #4CAF50;
@@ -14,19 +12,19 @@
       --bg-light: #f9fbfd;
       --bg-dark: #1e1e2f;
       --text-light: #f8f8f2;
-      --text-dark: #2a2a2a;
+      --text-dark: #333;
       --accent: #e0f7e9;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-light);
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, var(--bg-light), #e0e7ef);
       color: var(--text-dark);
       line-height: 1.6;
     }
@@ -34,110 +32,181 @@
     header {
       background: var(--bg-dark);
       color: white;
-      padding: 3rem 1rem 2rem;
+      padding: 60px 20px 40px;
       text-align: center;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      margin: 0;
+      font-size: 3em;
     }
 
     header p {
-      font-size: 1.1rem;
-      color: #ccc;
+      margin-top: 15px;
+      font-size: 1.25em;
+      color: #bbb;
+    }
+
+    nav {
+      background-color: white;
+      padding: 10px 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--primary-dark);
     }
 
     .container {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 2rem;
+      max-width: 960px;
+      margin: 50px auto;
+      padding: 40px;
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
     }
 
     h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 2em;
+      margin-top: 0;
+      color: var(--bg-dark);
     }
 
     textarea {
       width: 100%;
-      height: 180px;
-      padding: 1rem;
+      height: 220px;
+      padding: 18px;
       font-family: 'Fira Code', monospace;
-      font-size: 1rem;
-      background: #fdfdfd;
+      font-size: 16px;
+      background-color: #fbfbfb;
       border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
-      resize: vertical;
+      border-radius: 10px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
       transition: box-shadow 0.3s ease;
     }
 
     textarea:focus {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+      box-shadow: 0 0 12px rgba(76, 175, 80, 0.5);
     }
 
     button {
-      display: block;
-      margin: 1.5rem 0;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       color: white;
-      background: var(--primary);
+      background-color: var(--primary);
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(76, 175, 80, 0.4);
     }
 
     button:hover {
-      background: var(--primary-dark);
-      box-shadow: 0 6px 18px rgba(76, 175, 80, 0.5);
+      background-color: var(--primary-dark);
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.5);
+      transform: translateY(-2px);
     }
 
     pre {
-      background: #1e1e1e;
+      background: #2d2d2d;
       color: var(--text-light);
-      padding: 1rem;
-      border-radius: 8px;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
       font-family: 'Fira Code', monospace;
-      font-size: 0.95rem;
+      font-size: 15px;
       overflow-x: auto;
       white-space: pre-wrap;
       line-height: 1.5;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .code-list {
+      margin-top: 30px;
+    }
+
+    .code-snippet {
+      background: #f1f1f1;
+      border-left: 4px solid var(--primary);
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      white-space: pre-wrap;
     }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>💖 Code Share</h1>
-    <p>Paste, share, and display your code beautifully</p>
+    <h1>✨ Code Share</h1>
+    <p>Paste, share, and display your code instantly with style</p>
   </header>
 
-  <div class="container">
+  <nav>
+    <a href="#" onclick="showMain()">Home</a>
+    <a href="#" onclick="showAllCodes()">All Shared Code</a>
+  </nav>
+
+  <div class="container" id="main">
     <h2>Paste Your Code</h2>
     <textarea id="codeInput" placeholder="Paste your code snippet here..."></textarea>
-    <button onclick="shareCode()">Share Code</button>
+    <button onclick="shareCode()">🚀 Share Code</button>
 
     <h2>Shared Code</h2>
-    <pre id="sharedCode">Your code will appear here🕳</pre>
+    <pre id="sharedCode">/* Your code will appear here */</pre>
+  </div>
+
+  <div class="container" id="codeList" style="display:none">
+    <h2>All Shared Code</h2>
+    <div class="code-list" id="allCodes"></div>
   </div>
 
   <script>
+    const sharedCodes = [];
+
     function shareCode() {
       const code = document.getElementById('codeInput').value;
       document.getElementById('sharedCode').textContent = code || '/* Nothing to display */';
+      if (code.trim()) {
+        sharedCodes.unshift(code);
+        updateCodeList();
+      }
+    }
+
+    function updateCodeList() {
+      const list = document.getElementById('allCodes');
+      list.innerHTML = '';
+      sharedCodes.forEach((code, index) => {
+        const div = document.createElement('div');
+        div.className = 'code-snippet';
+        div.textContent = code;
+        list.appendChild(div);
+      });
+    }
+
+    function showMain() {
+      document.getElementById('main').style.display = 'block';
+      document.getElementById('codeList').style.display = 'none';
+    }
+
+    function showAllCodes() {
+      document.getElementById('main').style.display = 'none';
+      document.getElementById('codeList').style.display = 'block';
+      updateCodeList();
     }
   </script>
 </body>
-
 </html>
